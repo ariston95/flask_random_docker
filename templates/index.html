@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>{{top_num.content}}</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Task Master</h1>
+    <h2>{{top_num.content}}</h2>
+    <form action ="/" method="POST">
+        
+        <input type="submit" value="Add Task">
+    </form>
+
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {%for task in tasks%}
+        <tr>
+            <td>{{task.content}}</td>
+            <td>{{task.date_created.date()}}</td>
+            <td>{{task.name}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+
+</div>
+{% endblock %}
+
+
